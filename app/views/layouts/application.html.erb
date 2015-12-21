@@ -20,6 +20,11 @@
 						<%= link_to 'TRIBUTES', '/tributes' %> | 
 						<%= link_to 'NEWS', '/news' %>
 			</b>
+      <div align="right"> 
+         <% if session[:user_id] %>
+           <%= button_to 'Logout', logout_path, method: :delete %>
+         <% end %>
+      </div>
 		</div>
 	</div>
 

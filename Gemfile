@@ -45,3 +45,4 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'will_paginate', "~> 3.0.4" 
+gem 'bcrypt-ruby', '~> 3.0.0'

@@ -1,5 +1,6 @@
 class NewsController < ApplicationController
   before_action :set_news, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authorize, only: [:index]
 
   # GET /news
   # GET /news.json

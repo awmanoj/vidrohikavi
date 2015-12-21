@@ -1,5 +1,6 @@
 class TributesController < ApplicationController
   before_action :set_tribute, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authorize, only: [:index]
 
   # GET /tributes
   # GET /tributes.json

@@ -1,0 +1,13 @@
+// Place all the styles related to the Videos controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+div.one{
+    width:340px;
+    //min-width:100px;
+    float:right;
+}
+
+@media screen and (max-width: 767px){
+    div.one{ width:100%}
+}

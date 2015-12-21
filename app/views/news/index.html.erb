@@ -1,0 +1,16 @@
+<h1>News</h1>
+<p>.. news articles on 'Vidrohi'</p>
+<hr/>
+<table>
+  <tbody>
+    <% @news.each do |news| %>
+      <tr>
+        <td>> <%= link_to news.title, news.url %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<!-- <%= link_to 'New News', new_news_path %> -->

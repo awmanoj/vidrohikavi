@@ -1,0 +1,18 @@
+<h1>Videos</h1>
+<p>a collection of recitations of Vidrohi ji...</p>
+<% @videos.each do |video| %>
+<div class="one">
+	<div>
+	<iframe title="YouTube video player" class="youtube-player" type="text/html" 
+					width="320" height="190" src="<%= video.url.sub!("watch?v=", "v/") %>"
+					frameborder="0" allowFullScreen></iframe>
+	</div>
+	<div>
+		<b><%= video.title %></b>
+	</div>
+</div>
+<% end %>
+
+<br>
+
+<!-- <%= link_to 'New Video', new_video_path %> -->

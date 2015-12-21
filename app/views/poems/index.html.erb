@@ -1,0 +1,20 @@
+<h1>Poem</h1>
+<p>.. some of the poems</p>
+
+<center>
+	<%= will_paginate @poems %>
+</center>
+				<br/><br/>
+
+    <% @poems.each do |poem| %>
+			<center>
+        <h1><%= poem.title %></h1>
+				<br/>
+        <pre><h3><%= poem.lyrics %></h3></pre>
+				<br/><br/>
+			</center>
+    <% end %>
+
+<br>
+
+<!-- <%= link_to 'New Poem', new_poem_path %> -->

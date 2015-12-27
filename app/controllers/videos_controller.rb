@@ -1,11 +1,11 @@
 class VideosController < ApplicationController
   before_action :set_video, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authorize, only: [:index]
+  skip_before_action :authorize, only: [:index, :new, :create]
 
   # GET /videos
   # GET /videos.json
   def index
-    @videos = Video.all
+    @videos = Video.where(:published => 1)
   end
 
   # GET /videos/1
@@ -26,7 +26,7 @@ class VideosController < ApplicationController
   # POST /videos.json
   def create
     @video = Video.new(video_params)
-
+    @video.published = 0
     respond_to do |format|
       if @video.save
         format.html { redirect_to @video, notice: 'Video was successfully created.' }

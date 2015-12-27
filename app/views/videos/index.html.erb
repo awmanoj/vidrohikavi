@@ -1,5 +1,7 @@
 <h1>Videos</h1>
 <p>a collection of recitations of Vidrohi ji...</p>
+<div align="right"><%= link_to 'Add a new youtube video', new_video_path %></div>
+<br/>
 <% @videos.each do |video| %>
 <div class="one">
 	<div>
@@ -16,4 +18,4 @@
 
 <br>
 
-<!-- <%= link_to 'New Video', new_video_path %> -->
+

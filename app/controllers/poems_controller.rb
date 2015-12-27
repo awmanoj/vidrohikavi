@@ -1,11 +1,11 @@
 class PoemsController < ApplicationController
   before_action :set_poem, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authorize, only: [:index]
+  skip_before_action :authorize, only: [:index, :new, :create]
 
   # GET /poems
   # GET /poems.json
   def index
-    @poems = Poem.all
+    @poems = Poem.where(:published => 1)
     @poems = Poem.paginate(:page => params[:page], :per_page => 1)
   end
 
@@ -27,7 +27,7 @@ class PoemsController < ApplicationController
   # POST /poems.json
   def create
     @poem = Poem.new(poem_params)
-
+    @poem.published = 0
     respond_to do |format|
       if @poem.save
         format.html { redirect_to @poem, notice: 'Poem was successfully created.' }

@@ -1,11 +1,11 @@
 class TributesController < ApplicationController
   before_action :set_tribute, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authorize, only: [:index]
+  skip_before_action :authorize, only: [:index, :new, :create]
 
   # GET /tributes
   # GET /tributes.json
   def index
-    @tributes = Tribute.all
+    @tributes = Tribute.where(:published => 1)
   end
 
   # GET /tributes/1
@@ -26,7 +26,7 @@ class TributesController < ApplicationController
   # POST /tributes.json
   def create
     @tribute = Tribute.new(tribute_params)
-
+    @tribute.published = 0 
     respond_to do |format|
       if @tribute.save
         format.html { redirect_to @tribute, notice: 'Tribute was successfully created.' }

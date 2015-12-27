@@ -1,11 +1,11 @@
 class NewsController < ApplicationController
   before_action :set_news, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authorize, only: [:index]
+  skip_before_action :authorize, only: [:index, :new, :create]
 
   # GET /news
   # GET /news.json
   def index
-    @news = News.all
+    @news = News.where(:published => 1)
   end
 
   # GET /news/1
@@ -26,7 +26,7 @@ class NewsController < ApplicationController
   # POST /news.json
   def create
     @news = News.new(news_params)
-
+    @news.published = 0
     respond_to do |format|
       if @news.save
         format.html { redirect_to @news, notice: 'News was successfully created.' }

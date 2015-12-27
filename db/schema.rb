@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151221115321) do
+ActiveRecord::Schema.define(version: 20151227051546) do
 
   create_table "abouts", force: true do |t|
     t.string   "title"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20151221115321) do
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "published",  default: 1, null: false
   end
 
   create_table "poems", force: true do |t|
@@ -32,6 +33,7 @@ ActiveRecord::Schema.define(version: 20151221115321) do
     t.text     "lyrics"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "published",  default: 1, null: false
   end
 
   create_table "tributes", force: true do |t|
@@ -39,6 +41,7 @@ ActiveRecord::Schema.define(version: 20151221115321) do
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "published",  default: 1, null: false
   end
 
   create_table "users", force: true do |t|
@@ -53,6 +56,7 @@ ActiveRecord::Schema.define(version: 20151221115321) do
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "published",  default: 1, null: false
   end
 
 end
